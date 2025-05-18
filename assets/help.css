@@ -1,76 +1,31 @@
- /* .nav-link {
+.nav-link {
   font-weight: 500;
   color: #000 !important;
-} */
-
-.navbar-nav .nav-link {
+}
+.nav-link {
   position: relative;
-  color: black;
-  font-weight: bold;
-  padding-bottom: 30px;
-  transition: all 0.3s ease;
+  display: inline-block;
+  text-decoration: none;
+  color: #000 !important;
 }
 
-.navbar-nav .nav-link.active {
-  color: #c40000;
-}
-
-/* Paws */
-.navbar-nav .nav-link.active::before {
-  content: "🐾🐾";
-  position: absolute;
-  top: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 14px;
-}
-
-/* Arrow underline */
-.navbar-nav .nav-link.active::after {
+.nav-link::after {
   content: "";
   position: absolute;
-  bottom: 5px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 2px;
-  background: #c40000;
-}
-
-.navbar-nav .nav-link.active::after {
-  content: "";
-  position: absolute;
-  bottom: 8px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 2px;
-  background-color: #c40000;
-}
-
-/* Dot at end */
-.navbar-nav .nav-link.active::after {
-  content: "";
-  position: absolute;
-  bottom: 5px;
-  left: calc(50% + 28px);
-  width: 6px;
-  height: 6px;
-  background-color: #c40000;
-  border-radius: 50%;
-}
-
-/* Arrow triangle at start */
-.navbar-nav .nav-link.active::before {
-  content: "";
-  position: absolute;
-  bottom: 4px;
-  left: calc(50% - 33px);
+  left: 0;
+  bottom: 0;
   width: 0;
-  height: 0;
-  border-top: 5px solid transparent;
-  border-bottom: 5px solid transparent;
-  border-right: 8px solid #c40000;
+  height: 2px;
+  background-color: #dc3545;
+  transition: width 0.5s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-link.active::after {
+  width: 100% !important;
 }
 
  .help-section h3 {

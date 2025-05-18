@@ -2,7 +2,31 @@
       background-color: #fdf6ee;
       font-family: 'Segoe UI', sans-serif;
     }
+.nav-link {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  color: #000; 
+}
 
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0; 
+  width: 0;
+  height: 2px;
+  background-color: #dc3545; 
+  transition: width 1s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-link.active::after {
+  width: 100%;
+}
     .hero-section {
       padding: 60px 50px;
     }

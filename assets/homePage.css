@@ -6,7 +6,31 @@
   font-weight: 500;
   color: #000 !important;
 }
+.nav-link {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  color: #000; 
+}
 
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0; 
+  width: 0;
+  height: 2px;
+  background-color: #dc3545; 
+  transition: width 1s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-link.active::after {
+  width: 100%;
+}
 .btn-outline-dark:hover {
   background-color: #000;
   color: #fff;
