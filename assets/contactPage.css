@@ -1,0 +1,117 @@
+  h2, h3 {
+      color: #111;
+    }
+
+    .donate-title {
+      font-size: 1.8rem;
+      margin-top: 30px;
+      color: #cc0000;
+    }
+
+    .donate-card {
+      border-radius: 12px;
+      background: linear-gradient(to right, #c00, #d11212);
+      overflow: hidden;
+      color: white;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease;
+    }
+
+    .donate-card:hover {
+      transform: scale(1.02);
+    }
+@media (max-width: 767.98px) {
+  .donate-img {
+    width: 100%;
+    height: 180px;            
+  }
+  .donate-details {
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  .donate-img,
+  .donate-details {
+    width: 50%;
+  }
+  .donate-img {
+    height: 230px;          
+  }
+}
+
+
+.object-fit-cover {
+  object-fit: cover;
+  display: block;
+}
+
+    /* .donate-img {
+      height: 530px;
+      object-fit: cover;
+      border-top-left-radius: 12px;
+      border-bottom-left-radius: 12px;
+    } */
+
+    /* .donate-img {
+  object-fit: cover;
+  height: 500px;
+  width: 200px;
+} */
+
+    .donate-price {
+      display: inline-block;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .contact-details i {
+      color: #cc0000;
+      margin-right: 5px;
+    }
+
+     body {
+      background-color: #fff6ed;
+      font-family: 'Open Sans', sans-serif;
+    }
+    .donate-card {
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+    .donate-card:hover {
+      transform: scale(1.02);
+    }
+    .donate-img {
+      object-fit: cover;
+      height: 100%;
+    }
+    .donate-price {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #c00;
+      margin-bottom: 0.5rem;
+    }
+    .contact-details div {
+      font-size: 1rem;
+      padding: 10px;
+    }
+    footer ul li{
+      margin-bottom: 20px;
+    }
+    footer ul li a:hover {
+      text-decoration: underline;
+    }
+    @media (max-width: 768px) {
+      .donate-card {
+        flex-direction: row;
+        align-items: center;
+        text-align: center;
+      }
+      .donate-img {
+        width: 100%;
+        height: auto;
+      }
+    }

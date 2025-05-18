@@ -1,0 +1,115 @@
+*{
+  margin: 0;
+  padding: 0;
+  
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fef4e9;
+}
+
+
+.arc-img {
+  margin: 10px auto;
+}
+
+.arc-top {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.arc-mid {
+  flex-shrink: 0;
+}
+
+.portrait-img {
+  margin: 10px 0;
+}
+
+
+@media (max-width: 768px) {
+  .d-flex.justify-content-center {
+    flex-wrap: wrap !important;
+    gap: 20px !important;
+  }
+
+  .row.align-items-center,
+  .row.align-items-start {
+    text-align: center;
+  }
+
+  .row.align-items-start .col-md-6 {
+    margin-top: 20px;
+  }
+
+  .text-end {
+    text-align: center !important;
+  }
+}
+
+
+@media (max-width: 768px) {
+  footer .row > div {
+    margin-bottom: 20px;
+    text-align: center !important;
+  }
+}
+
+ /* .rounded-circle {
+      border: 4px solid #fff;
+    }
+
+    .gallery-section h2,
+    .happy-section h2 {
+      text-align: center;
+      font-weight: bold;
+      margin-bottom: 30px;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    }
+
+    .gallery-images img,
+    .happy-images img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .portrait-img {
+      width: 180px;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .footer-custom {
+      background: linear-gradient(to left, #c00, #990000);
+      border-top-left-radius: 30px;
+      border-top-right-radius: 100px;
+      color: white;
+      padding: 40px 20px;
+    }
+
+    .footer-custom a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .footer-custom a:hover {
+      text-decoration: underline;
+    } */
+ .footer-section {
+  background: linear-gradient(to top, #c00, #d7261d);
+}
+
+ul a{
+  text-decoration: none;
+}
+
+ul li{
+  margin-top: 20px;
+}

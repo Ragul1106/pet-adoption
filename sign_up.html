@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="assets/sign_up.css">
+</head>
+<body>
+
+<div class="container">
+  <div class="image-box">
+    <img src="Images/pngtree-colorful-dogs-having-fun-together-png-image_14399160-removebg-preview.png" alt="Dogs">
+  </div>
+
+  <div class="form-box">
+    <!-- <button class="close-btn">×</button> -->
+     <a href="index.html" class="close-btn">x</a>
+    <h2>Sign Up</h2>
+
+    <input id="fullName"  type="text" placeholder="Full Name">
+    <input id="email" type="email" placeholder="Email">
+    <input id="password" type="password" placeholder="Password">
+<!-- <a href="index.html"> -->
+    <button class="signup-btn" onclick="signUp()">Sign Up</button>
+<!-- </a> -->
+    
+     <!-- <a href="index.html" class="signup-btn">Sign Up</a> -->
+
+    <p class="account-text">Already have an account ? <a href="register.html">Log in</a></p>
+  </div>
+</div>
+
+<script>
+  function signUp() {
+    const fullName = document.getElementById('fullName').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value.trim();
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!fullName || !email || !password) {
+      alert("Please fill all fields");
+      return;
+    }
+
+    if (!emailPattern.test(email)) {
+    alert("Please enter a valid email address");
+    return;
+  }
+
+  if (password.length < 6) {
+    alert("Password must be at least 6 characters long");
+    return;
+  }
+    const userData = { fullName, email, password };
+    localStorage.setItem('user', JSON.stringify(userData));
+
+   
+    window.location.href = 'register.html';
+  }
+</script>
+</body>
+</html>

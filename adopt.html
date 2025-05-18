@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pet Adoption Cards</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/adopt.css" />
+    <style>
+   #adoptModal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+.container-modal {
+  display: flex;
+  background-color: #f8f0f3;
+  border-radius: 10px;
+  box-shadow: 20px 20px 10px rgba(0,0,0,0.2);
+  overflow: hidden;
+  max-width: 700px;
+  width: 100%;
+  margin-left: 20%;
+}
+
+.form-box {
+  flex: 1;
+  padding: 40px;
+  position: relative;
+  background: #fff;
+}
+
+.form-box h2{
+    text-align: center;
+}
+.image-box {
+  flex: 1;
+}
+
+.image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 24px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+label{
+    font-size: large;
+    font-weight: bold;
+}
+input[type="text"],
+input[type="email"] {
+  width: 100%;
+  padding: 14px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  border: 1.5px solid black;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+.login-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.login-btn {
+  background: linear-gradient(to right, #e90000, #a40000);
+  color: white;
+  border: none;
+  padding: 12px 40px;
+  border-radius: 10px;
+  text-decoration: none;
+  text-align: center;
+  width: 100%;
+  font-size: 16px;
+  cursor: pointer;
+  letter-spacing: 1px;
+}
+@media (max-width: 768px) {
+  .container-modal {
+    flex-direction: column;
+    max-width: 90%;
+    height: auto;
+  }
+
+  .image-box {
+    display: none;
+  }
+
+  .form-box {
+    padding: 20px;
+  }
+}
+  </style>
+  </head>
+  <body>
+    <!-- <nav class="navbar navbar-expand-lg py-3" style="position: fixed; width: 100%;  background-color:#fff6ed;"> -->
+    <nav class="navbar navbar-expand-lg py-3" >
+      <div class="container px-2">
+        <a class="navbar-brand me-4" href="#">
+          <img
+            src="Images/360_F_112613854_pw8ZkYdUo0zD4za7Fk1IcoXknuFNhdGM-removebg-preview.png"
+            alt="Logo"
+            style="width: 80px"
+          />
+        </a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div
+          class="collapse navbar-collapse justify-content-between"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav mx-auto gap-lg-5">
+            <li class="nav-item">
+              <a class="nav-link fw-bold" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fw-bold" href="pets.html">Pets</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fw-bold" href="gallery.html">Gallery</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fw-bold" href="services.html">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fw-bold" href="contactPage.html">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fw-bold" href="help.html">Help</a>
+            </li>
+          </ul>
+          <a href="sign_up.html" class="btn btn-danger px-4 ms-4 mt-2 mt-lg-0">Register</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid hero-section">
+      <div class="row align-items-center">
+        <div class="col-lg-6 hero-text">
+          <h1>Great!<br />Your Furry Friend<br />Is Awaiting For You.</h1>
+          <p>
+            "You didn’t just adopt a pet, You became God’s<br />
+            hands on earth. To lift the forgotten,<br />
+            to shelter the weak, To offer hope where there was none.<br />
+            And in return, you’ll receive the purest love,<br />
+            Wrapped in fur, tail wags, and trust."
+          </p>
+        </div>
+
+        <div class="col-lg-6 d-flex justify-content-center align-items-center">
+          <div class="me-4 d-flex flex-column align-items-center">
+            <img
+              src="Images/pexels-marcin-manka-2148441138-31734911.jpg"
+              class="circle-img"
+              alt="Cat"
+            />
+            <img
+              src="Images/pexels-oli-sumit-607715-1418241.jpg"
+              class="circle-img"
+              alt="Bird"
+            />
+          </div>
+          <div>
+            <img
+              src="Images/pexels-nord6-917106.jpg"
+              style="transform: scaleX(-1)"
+              class="main-dog-img"
+              alt="Dog in car"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2 style="text-align: center; color: red">
+      Adopt Your Pet Child!
+      <img
+        style="height: 50px"
+        src="Images/360_F_878967624_Jjr8D8QPjayZrje90q8IDPHK1eG5tSIZ-removebg-preview.png"
+        alt=""
+      />
+    </h2>
+
+    <div class="container py-5">
+      <div class="row">
+        <div class="col-lg-3 col-md-4 col-sm-6">
+          <div class="pet-card">
+            <div class="hanger"></div>
+            <div class="image-container">
+              <img src="Images/pexels-gabesphotos-11512370.jpg" alt="Max" />
+              <div class="pet-overlay text-center">
+                <h5>Max</h5>
+                <p class="mb-1">Age : 2 yrs</p>
+                <p>Vaccination : Upto Date</p>
+                <!-- <a href="adoptionForm.html" class="btn btn-adopt" onclick="openModal()">ADOPT</a> -->
+               <button class="btn-adopt" onclick="openModal()">Adopt Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4 col-sm-6">
+          <div class="pet-card">
+            <div class="hanger"></div>
+            <div class="image-container">
+              <img src="Images/cute-dog-veterinary-clinic.jpg" alt="Buddy" />
+              <div class="pet-overlay text-center">
+                <h5>Buddy</h5>
+                <p class="mb-1">Age : 2 yrs</p>
+                <p>Vaccination : Upto Date</p>
+                <button class="btn btn-adopted" disabled>ADOPTED</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4 col-sm-6">
+          <div class="pet-card">
+            <div class="hanger"></div>
+            <div class="image-container">
+              <img
+                src="Images/vertical-shot-adorable-typical-chesapeake-bay-retriever-surrounded-by-purple-hydrangea-flowers.jpg"
+                alt="Max"
+              />
+              <div class="pet-overlay text-center">
+                <h5>jack</h5>
+                <p class="mb-1">Age : 2 yrs</p>
+                <p>Vaccination : Upto Date</p>
+               <!-- <a href="adoptionForm.html" class="btn btn-adopt" onclick="openModal()">ADOPT</a> -->
+                <button class="btn-adopt" onclick="openModal()">Adopt Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4 col-sm-6">
+          <div class="pet-card">
+            <div class="hanger"></div>
+            <div class="image-container">
+              <img
+                src="Images/greyhound-dog-with-blurry-background-full-shot.jpg"
+                alt="Buddy"
+              />
+              <div class="pet-overlay text-center">
+                <h5>Bruno</h5>
+                <p class="mb-1">Age : 2 yrs</p>
+                <p>Vaccination : Upto Date</p>
+                <button class="btn btn-adopted" disabled>ADOPTED</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4 col-sm-6">
+          <div class="pet-card">
+            <div class="hanger"></div>
+            <div class="image-container">
+              <img
+                src="Images/adorable-dog-shelter-posing-step.jpg"
+                alt="Max"
+              />
+              <div class="pet-overlay text-center">
+                <h5>Bruno</h5>
+                <p class="mb-1">Age : 2 yrs</p>
+                <p>Vaccination : Upto Date</p>
+               <!-- <a href="adoptionForm.html" class="btn btn-adopt" onclick="openModal()">ADOPT</a> -->
+                <button class="btn-adopt" onclick="openModal()">Adopt Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4 col-sm-6">
+          <div class="pet-card">
+            <div class="hanger"></div>
+            <div class="image-container">
+              <img
+                src="Images/beautiful-shot-cute-beagle-dog.jpg"
+                alt="Buddy"
+              />
+              <div class="pet-overlay text-center">
+                <h5>Buddy</h5>
+                <p class="mb-1">Age : 2 yrs</p>
+                <p>Vaccination : Upto Date</p>
+                <button class="btn btn-adopted" disabled>ADOPTED</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4 col-sm-6">
+          <div class="pet-card">
+            <div class="hanger"></div>
+            <div class="image-container">
+              <img
+                src="Images/pexels-sharon-snider-2339082-4000312.jpg"
+                alt="Max"
+              />
+              <div class="pet-overlay text-center">
+                <h5>Nova</h5>
+                <p class="mb-1">Age : 2 yrs</p>
+                <p>Vaccination : Upto Date</p>
+               <!-- <a href="adoptionForm.html" class="btn btn-adopt" onclick="openModal()">ADOPT</a> -->
+                <button class="btn-adopt" onclick="openModal()">Adopt Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4 col-sm-6">
+          <div class="pet-card">
+            <div class="hanger"></div>
+            <div class="image-container">
+              <img
+                src="Images/pexels-heather-white-146505253-10443834.jpg"
+                alt="Buddy"
+              />
+              <div class="pet-overlay text-center">
+                <h5>Mike</h5>
+                <p class="mb-1">Age : 2 yrs</p>
+                <p>Vaccination : Upto Date</p>
+                <button class="btn btn-adopted" disabled>ADOPTED</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4 col-sm-6">
+          <div class="pet-card">
+            <div class="hanger"></div>
+            <div class="image-container">
+              <img
+                src="Images/closeup-shot-golden-labrador-sitting-grass.jpg"
+                alt="Max"
+              />
+              <div class="pet-overlay text-center">
+                <h5>Jacky</h5>
+                <p class="mb-1">Age : 2 yrs</p>
+                <p>Vaccination : Upto Date</p>
+                <!-- <a href="adoptionForm.html" class="btn btn-adopt" onclick="openModal()">ADOPT</a> -->
+                <button class="btn-adopt" onclick="openModal()">Adopt Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6">
+          <div class="pet-card">
+            <div class="hanger"></div>
+            <div class="image-container">
+              <img src="Images/pexels-alexasfotos-31674142.jpg" alt="Buddy" />
+              <div class="pet-overlay text-center">
+                <h5>Jaddu</h5>
+                <p class="mb-1">Age : 2 yrs</p>
+                <p>Vaccination : Upto Date</p>
+                <button class="btn btn-adopted" disabled>ADOPTED</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4 col-sm-6">
+          <div class="pet-card">
+            <div class="hanger"></div>
+            <div class="image-container">
+              <img src="Images/pexels-timblesphotos-5371623.jpg" alt="Max" />
+              <div class="pet-overlay text-center">
+                <h5>Jade</h5>
+                <p class="mb-1">Age : 2 yrs</p>
+                <p>Vaccination : Upto Date</p>
+               <!-- <a href="#" class="btn btn-adopt" onclick="openModal()">ADOPT</a> -->
+               <button class="btn-adopt" onclick="openModal()">Adopt Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4 col-sm-6">
+          <div class="pet-card">
+            <div class="hanger"></div>
+            <div class="image-container">
+              <img src="Images/pexels-helenalopes-2253275.jpg" alt="Buddy" />
+              <div class="pet-overlay text-center">
+                <h5>Buddy</h5>
+                <p class="mb-1">Age : 2 yrs</p>
+                <p>Vaccination : Upto Date</p>
+                <button class="btn btn-adopted" disabled>ADOPTED</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rules-container">
+      <h2>Pet Adoption Rules :</h2>
+      <div class="rule-flow">
+        <div class="rule-box">
+          “Adopters must be 18 years<br />or older with valid<br />ID proof”
+        </div>
+        <!-- <div class="rule-connector"></div> -->
+        <div class="rule-box">
+          “You must have a stable<br />and pet-friendly living<br />space”
+        </div>
+        <!-- <div class="rule-connector"></div> -->
+        <div class="rule-box">
+          “Ensure you have the<br />financial resources for<br />food,
+          healthcare, and<br />regular upkeep”
+        </div>
+        <!-- <div class="rule-connector"></div> -->
+        <div class="rule-box">
+          “If needed, pets must be returned to the adoption center— no
+          exceptions”
+        </div>
+      </div>
+    </div>
+
+    <!-- Partners -->
+    <div class="partners-section">
+      <h4>Our Adoption Family Partners :</h4>
+      <div class="partners-logos">
+        <img src="Images/images-removebg-preview (10).png" alt="ASPCA" />
+        <img
+          src="Images/international-animal-rescue-removebg-preview.png"
+          alt="IAR"
+        />
+        <img
+          src="Images/petsmart-charities-logo-png_seeklogo-531167-removebg-preview.png"
+          alt="PetSmart"
+        />
+        <img
+          src="Images/png-transparent-friends-best-friends-animal-society-utah-text-emergency-evacuation-computer-font-permalink-orange-thumbnail-removebg-preview.png"
+          alt="Best Friends"
+        />
+        <img
+          src="Images/the-humane-society-of-the-united-states-vector-logo-removebg-preview.png"
+          alt="Humane Society"
+        />
+      </div>
+    </div>
+<div id="adoptModal">
+  <div class="container-modal">
+    <div class="form-box">
+      <button class="close-btn" onclick="closeModal()">×</button>
+      <h2>Register Free!</h2>
+      <label>Name:</label>
+      <input type="text" placeholder="Enter your Name" />
+
+      <label>Phone Number:</label>
+      <input type="text" placeholder="Enter your phone number" />
+
+      <label>Breed & Reason:</label>
+      <input type="text" placeholder="Reason for adoption" />
+
+      <label>Email:</label>
+      <input type="email" placeholder="abc@gmail.com" />
+
+      <div class="login-row">
+        <button class="login-btn" onclick="openThankYouModal()">REQUEST ADOPTION</button>
+      </div>
+    </div>
+    <div class="image-box">
+        <img src="Images/istockphoto-1284222514-640x640.jpg" alt="Dog" />
+      </div>
+  </div>
+</div>
+
+
+<div id="thankYouModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); z-index: 999; justify-content: center; align-items: center;">
+  <div class="container" style="background-color: red; height: 500px; width: 800px; border-radius: 50px; padding: 40px; text-align: center; position: relative;">
+    <button class="close-btn" onclick="closeThankYouModal()" style="position: absolute; top: 15px; right: 20px; font-size: 24px; border: none; background: transparent; color: white; cursor: pointer;">
+      &times;
+    </button>
+    <img src="Images/88aada2ab09fb918c34403c8186a4b30.gif" alt="Thank You" style="width: 150px; height: auto; margin-bottom: 20px;" />
+    <h2 class="fs-1" style="color: white;">THANKS FOR REQUEST!</h2>
+    <p class="fs-5" style="color: white;">Our team will reach out to you soon.</p>
+  </div>
+</div>
+
+
+
+    <footer
+      class="text-light pt-4"
+      style="
+        background: linear-gradient(to left, #c00, #990000);
+        border-top-left-radius: 30px;
+        border-top-right-radius: 100px;
+      "
+    >
+      <div class="container-fluid px-4">
+        <div class="row gy-4 gx-5">
+          <div class="col-12 col-sm-6 col-md-2 text-center text-md-start">
+           <div class="col-12 col-sm-6 col-md-2 text-center text-md-start">
+        <a class="navbar-brand me-4" href="index.html">
+      <img src="Images/360_F_112613854_pw8ZkYdUo0zD4za7Fk1IcoXknuFNhdGM-removebg-preview.png" alt="Logo" style="width: 150px; height: 200px;" />
+    </a>
+      </div>
+          </div>
+
+          <div class="col-6 col-md-2">
+            <h5 class="fw-bold">About Us</h5>
+            <ul class="list-unstyled">
+              <li>
+                <a href="#" class="text-light text-decoration-none"
+                  >Who We Are</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-light text-decoration-none"
+                  >Our Mission</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-light text-decoration-none"
+                  >How It Works</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-light text-decoration-none"
+                  >Success Stories</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-6 col-md-2">
+            <h5 class="fw-bold">Quick Links</h5>
+            <ul class="list-unstyled">
+              <li>
+                <a href="#" class="text-light text-decoration-none"
+                  >Browse Pets</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-light text-decoration-none"
+                  >Adopt a Pet</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-light text-decoration-none">Donate</a>
+              </li>
+              <li>
+                <a href="#" class="text-light text-decoration-none">FAQs</a>
+              </li>
+              <li>
+                <a href="#" class="text-light text-decoration-none">Blog</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-12 col-md-3">
+            <h5 class="fw-bold">Contact & Social</h5>
+            <p class="mb-1">123 Pet Street, Chennai, TN</p>
+            <p class="mb-1">+91-90000-12345</p>
+            <p>
+              <a
+                href="mailto:hello@pawfectmatch.com"
+                class="text-light text-decoration-none"
+                >hello@pawfectmatch.com</a
+              >
+            </p>
+            <p class="mt-3 mb-1 small">
+              &copy; 2025 Pawfect Match. All rights reserved.
+            </p>
+            <p class="mb-0 small">
+              <a href="#" class="text-light text-decoration-underline"
+                >Terms & Conditions</a
+              >
+              |
+              <a href="#" class="text-light text-decoration-underline"
+                >Privacy Policy</a
+              >
+            </p>
+          </div>
+
+          <div class="col-12 col-md-3 text-center text-md-start">
+            <h5 class="fw-bold">Follow Us On :</h5>
+            <div class="fs-4 mb-2">
+              <a href="#" class="text-light me-3"
+                ><i class="bi bi-youtube"></i
+              ></a>
+              <a href="#" class="text-light me-3"
+                ><i class="bi bi-google"></i
+              ></a>
+              <a href="#" class="text-light me-3"
+                ><i class="bi bi-facebook"></i
+              ></a>
+              <a href="#" class="text-light me-3"
+                ><i class="bi bi-pinterest"></i
+              ></a>
+              <a href="#" class="text-light"><i class="bi bi-twitter"></i></a>
+            </div>
+            <img
+              src="Images/pngtree-two-puppies-sit-in-gift-boxes-cute-pets-with-christmas-holiday-png-image_13975436-removebg-preview.png"
+              alt="Puppies"
+              class="img-fluid mt-3"
+              style="max-width: 180px"
+            />
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="assets/JS/adoptionForm.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+   <script>
+  function closeModal() {
+    document.getElementById("adoptModal").style.display = "none";
+  }
+
+  function openThankYouModal() {
+    closeModal(); 
+    document.getElementById("thankYouModal").style.display = "flex"; 
+  }
+
+  function closeThankYouModal() {
+    document.getElementById("thankYouModal").style.display = "none";
+    // Optionally redirect to home:
+    // window.location.href = 'index.html';
+  }
+</script>
+
+  </body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Register Free</title>
+  <link rel="stylesheet" href="assets/register.css">
+</head>
+<body>
+
+<div class="container">
+  <div class="form-box">
+    <!-- <button class="close-btn">×</button> -->
+    <a href="index.html" class="close-btn">x</a>
+    <h2>Register Free !</h2>
+
+   <input id="loginEmail" type="email" placeholder="abc@gmail.com">
+<input id="loginPassword" type="password" placeholder="••••••••">
+<!-- <button class="login-btn" onclick="login()">Login</button> -->
+
+    <div class="login-row">
+      <button class="login-btn" onclick="login()">Login</button>
+      <a href="#" class="forgot">Forget your password?</a>
+    </div>
+
+    <div class="divider">Sign Up Using</div>
+
+    <div class="social-icons">
+      <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/281/281764.png" alt="Google"></a>
+      <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook"></a>
+      <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram"></a>
+      <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter"></a>
+    </div>
+
+    <p class="new-account">Don’t have an account? <a href="sign_up.html">Create New Account</a></p>
+  </div>
+
+  <div class="image-box">
+    <img src="https://images.unsplash.com/photo-1592194996308-7b43878e84a6?auto=format&fit=crop&w=800&q=80" alt="Dog">
+  </div>
+</div>
+
+<script>
+  function login() {
+  const email = document.getElementById('loginEmail').value.trim();
+  const password = document.getElementById('loginPassword').value.trim();
+
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (!email || !password) {
+    alert("Please enter email and password");
+    return;
+  }
+
+  if (!emailPattern.test(email)) {
+    alert("Please enter a valid email address");
+    return;
+  }
+
+  // Example password validation: minimum 6 characters
+  if (password.length < 6) {
+    alert("Password must be at least 6 characters long");
+    return;
+  }
+
+  const storedUser = JSON.parse(localStorage.getItem('user'));
+
+  if (!storedUser) {
+    alert("You must sign up first");
+    window.location.href = 'sign_up.html'; 
+    return;
+  }
+
+  if (email === storedUser.email && password === storedUser.password) {
+    window.location.href = 'index.html'; 
+  } else {
+    alert("Incorrect login details or you must sign up first");
+  }
+}
+
+</script>
+</body>
+</html>
