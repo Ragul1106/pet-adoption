@@ -307,30 +307,23 @@
           <span class="close-btn" onclick="closeModal()">&times;</span>
           <h2>🐶 THANK FOR DONATION ! 🐶</h2>
           <h3>Payment Details</h3>
-          <form>
-            <label for="name">Name :</label>
-            <input type="text" id="name" placeholder="Enter your name" />
+          <form onsubmit="return showThankYouModal(event)">
+  <label for="name">Name :</label>
+  <input type="text" id="name" placeholder="Enter your name" required />
 
-            <label for="place">Place :</label>
-            <input type="text" id="place" placeholder="Enter your place" />
+  <label for="place">Place :</label>
+  <input type="text" id="place" placeholder="Enter your place" required />
 
-            <label>UPI PAYMENT :</label>
-            <div class="payment-icons">
-              <img
-                src="Images/png-transparent-google-pay-or-tez-hd-logo-thumbnail-removebg-preview.png"
-                alt="GPay"
-              />
-              <img
-                src="Images/db4253052cfc0f80ac281486c19f9d57-removebg-preview.png"
-                alt="PhonePe"
-              />
-              <img src="Images/images-removebg-preview (11).png" alt="PayPal" />
-            </div>
+  <label>UPI PAYMENT :</label>
+  <div class="payment-icons">
+    <img src="Images/png-transparent-google-pay-or-tez-hd-logo-thumbnail-removebg-preview.png" alt="GPay" />
+    <img src="Images/db4253052cfc0f80ac281486c19f9d57-removebg-preview.png" alt="PhonePe" />
+    <img src="Images/images-removebg-preview (11).png" alt="PayPal" />
+  </div>
 
-            <button class="pay-btn" onclick="showThankYouModal()">
-              Make a Payment
-            </button>
-          </form>
+  <button type="submit" class="pay-btn">Make a Payment</button>
+</form>
+
         </div>
       </div>
 
@@ -493,6 +486,30 @@
         </div>
       </div>
     </footer>
+    <script>
+  function showThankYouModal(event) {
+    event.preventDefault(); // Prevent default form submit
+
+    const name = document.getElementById("name").value.trim();
+    const place = document.getElementById("place").value.trim();
+
+    if (!name || !place) {
+      alert("Please fill in both Name and Place!");
+      return false;
+    }
+
+    document.getElementById("thankYouModal").style.display = "block";
+
+    event.target.reset();
+
+    return false;
+  }
+
+  function closeThankYouModal() {
+    document.getElementById("thankYouModal").style.display = "none";
+  }
+</script>
+
     <script>
       const donationModal = document.getElementById("donationModal");
       const thankYouModal = document.getElementById("thankYouModal");
