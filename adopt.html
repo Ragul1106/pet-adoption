@@ -22,12 +22,12 @@
   display: none;
   position: fixed;
   z-index: 999;
+  background-color: rgba(0, 0, 0, 0.3);
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0, 0, 0, 0.6);
   justify-content: center;
   align-items: center;
 }
@@ -39,8 +39,9 @@
   box-shadow: 20px 20px 10px rgba(0,0,0,0.2);
   overflow: hidden;
   max-width: 700px;
+  /* margin-top: 140px; */
   width: 100%;
-  margin-left: 20%;
+  margin: 120px auto;
 }
 
 .form-box {
@@ -131,8 +132,9 @@ input[type="email"] {
   </style>
   </head>
   <body>
-    <!-- <nav class="navbar navbar-expand-lg py-3" style="position: fixed; width: 100%;  background-color:#fff6ed;"> -->
-   <nav class="navbar navbar-expand-lg py-3" style="background-color: #fff6ed !important;">
+  
+   <!-- <nav class="navbar navbar-expand-lg py-3" style="background-color: #fff6ed !important;"> -->
+<nav class="navbar navbar-expand-lg py-3 fixed-top shadow-sm" style="background-color: #fff6ed !important; z-index: 1030;">
 
   <div class="container px-2">
 
@@ -164,7 +166,8 @@ input[type="email"] {
 
 
     <div class="container-fluid hero-section">
-      <div class="row align-items-center">
+      <div class="row align-items-center" style="margin-top: 100px;">
+
         <div class="col-lg-6 hero-text">
           <h1>Great!<br />Your Furry Friend<br />Is Awaiting For You.</h1>
           <p>
@@ -468,25 +471,27 @@ input[type="email"] {
     </div>
 <div id="adoptModal">
   <div class="container-modal">
-    <div class="form-box">
-      <button class="close-btn" onclick="closeModal()">×</button>
-      <h2>Register Free!</h2>
-      <label>Name:</label>
-      <input type="text" placeholder="Enter your Name" />
+   <div class="form-box">
+  <button class="close-btn" onclick="closeModal()">×</button>
+  <h2>Register Free!</h2>
 
-      <label>Phone Number:</label>
-      <input type="text" placeholder="Enter your phone number" />
+  <label>Name:</label>
+  <input type="text" id="name" placeholder="Enter your Name" />
 
-      <label>Breed & Reason:</label>
-      <input type="text" placeholder="Reason for adoption" />
+  <label>Phone Number:</label>
+  <input type="text" id="phone" placeholder="Enter your phone number" />
 
-      <label>Email:</label>
-      <input type="email" placeholder="abc@gmail.com" />
+  <label>Breed & Reason:</label>
+  <input type="text" id="reason" placeholder="Reason for adoption" />
 
-      <div class="login-row">
-        <button class="login-btn" onclick="openThankYouModal()">REQUEST ADOPTION</button>
-      </div>
-    </div>
+  <label>Email:</label>
+  <input type="email" id="email" placeholder="abc@gmail.com" />
+
+  <div class="login-row">
+    <button class="login-btn" onclick="validateForm()">REQUEST ADOPTION</button>
+  </div>
+</div>
+
     <div class="image-box">
         <img src="Images/istockphoto-1284222514-640x640.jpg" alt="Dog" />
       </div>
@@ -495,11 +500,11 @@ input[type="email"] {
 
 
 <div id="thankYouModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); z-index: 999; justify-content: center; align-items: center;">
-  <div class="container" style="background-color: red; height: 500px; width: 800px; border-radius: 50px; padding: 40px; text-align: center; position: relative;">
+  <div class="container" style="background-color: red; margin-top: 120px; height: 450px; width: 700px; border-radius: 50px; padding: 40px; text-align: center; position: relative;">
     <button class="close-btn" onclick="closeThankYouModal()" style="position: absolute; top: 15px; right: 20px; font-size: 24px; border: none; background: transparent; color: white; cursor: pointer;">
       &times;
     </button>
-    <img src="Images/88aada2ab09fb918c34403c8186a4b30.gif" alt="Thank You" style="width: 150px; height: auto; margin-bottom: 20px;" />
+    <img src="Images/88aada2ab09fb918c34403c8186a4b30.gif" alt="Thank You" style="width: 150px; height: auto; margin-bottom: 20px; " />
     <h2 class="fs-1" style="color: white;">THANKS FOR REQUEST!</h2>
     <p class="fs-5" style="color: white;">Our team will reach out to you soon.</p>
   </div>
@@ -642,8 +647,6 @@ input[type="email"] {
 
   function closeThankYouModal() {
     document.getElementById("thankYouModal").style.display = "none";
-    // Optionally redirect to home:
-    // window.location.href = 'index.html';
   }
 </script>
 
