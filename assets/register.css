@@ -44,6 +44,25 @@ body {
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
 }
+.password-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.password-wrapper input {
+  width: 100%;
+  padding-right: 40px; 
+}
+
+.toggle-password {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-80%);
+  cursor: pointer;
+  user-select: none;
+}
+
 
 .close-btn {
   position: absolute;
@@ -61,8 +80,7 @@ h2 {
   margin-bottom: 20px;
 }
 
-input[type="email"],
-input[type="password"] {
+input[type="email"] {
   width: 100%;
   padding: 14px;
   margin-bottom: 15px;
@@ -70,7 +88,14 @@ input[type="password"] {
   border-radius: 10px;
   font-size: 16px;
 }
-
+#loginPassword{
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 15px;
+  border: 1.5px solid black;
+  border-radius: 10px;
+  font-size: 16px;
+}
 .login-row {
   display: flex;
   justify-content: space-between;

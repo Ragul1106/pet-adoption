@@ -20,7 +20,12 @@
 
     <input id="fullName"  type="text" placeholder="Full Name">
     <input id="email" type="email" placeholder="Email">
-    <input id="password" type="password" placeholder="Password">
+    <div class="password-wrapper">
+  <input id="loginPassword" type="password" placeholder="••••••••">
+  <span class="toggle-password" onclick="togglePasswordVisibility()">
+    👁️
+  </span>
+</div>
 <!-- <a href="index.html"> -->
     <button class="signup-btn" onclick="signUp()">Sign Up</button>
 <!-- </a> -->
@@ -32,10 +37,23 @@
 </div>
 
 <script>
+   function togglePasswordVisibility() {
+  const passwordInput = document.getElementById('loginPassword');
+  const toggleIcon = document.querySelector('.toggle-password');
+  
+  if (passwordInput.type === 'password') {
+    passwordInput.type = 'text';
+    toggleIcon.textContent = '🙈';
+  } else {
+    passwordInput.type = 'password';
+    toggleIcon.textContent = '👁️';
+  }
+}
+
   function signUp() {
     const fullName = document.getElementById('fullName').value.trim();
     const email = document.getElementById('email').value.trim();
-    const password = document.getElementById('password').value.trim();
+    const password = document.getElementById('loginPassword').value.trim();
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!fullName || !email || !password) {
